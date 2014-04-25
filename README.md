@@ -2,6 +2,16 @@
 
 Xbindkeys Configuration Framework
 
+## Usage
+
+### Start
+
+`dotxbindkeys`
+
+### Debug Mode
+
+`dotxbindkeys -v`
+
 ## FAQ
 
 ### Why not use Guile's modules?
