@@ -12,12 +12,13 @@
     (if (access? filename R_OK)
         (call-with-input-file filename
           (lambda (port)
-            (let ((chars '())
+            (let ((str "")
                   (c (read-char port)))
               (while (not (eof-object? c))
-                     (set! chars (append chars '(c)))
+                     (if (not (equal? c #\newline))
+                         (set! str (string-append str (string c))))
                      (set! c (read-char port)))
-              (list->string chars))))
+              str)))
         ""))
 
   (xbindkey-function '(alt shift F12)
