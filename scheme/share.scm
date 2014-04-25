@@ -4,7 +4,8 @@
 (define (reset-keys)
   (ungrab-all-keys)
   (remove-all-keys)
-  (run-hook reset-keys-hook))
+  (run-hook reset-keys-hook)
+  (grab-all-keys))
 
 (define (bind-run-receive-message-hook)
 
