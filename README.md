@@ -2,6 +2,15 @@
 
 Xbindkeys Configuration Framework
 
+## Install
+
+```
+sudo apt-get install xbindkeys xdotool
+git clone https://github.com/zenozeng/dotxbindkeys.git
+cd dotxbindkeys
+./install.sh
+```
+
 ## Usage
 
 ### Start
