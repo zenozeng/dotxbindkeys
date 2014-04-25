@@ -12,6 +12,18 @@ Xbindkeys Configuration Framework
 
 `dotxbindkeys -v`
 
+### Send Message to xbindkeys
+
+```scheme
+(add-hook! receive-message-hook
+           (lambda (msg)
+             (display msg)))
+```
+
+```shell
+dotxbindkeys-send-message "Hello World"
+```
+
 ## FAQ
 
 ### Why not use Guile's modules?
