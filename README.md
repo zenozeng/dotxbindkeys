@@ -46,6 +46,15 @@ Example: send F5 when control+r pressed
 dotxbindkeys-send-message "Hello World"
 ```
 
+### Install a plugin?
+
+Example from [xbindkeys-chromemacs](https://github.com/zenozeng/xbindkeys-chromemacs):
+
+```
+mkdir -p ~/.dotxbindkeys/plugins/chromemacs
+cp -f chromemacs.scm chromemacdaemon ~/.dotxbindkeys/plugins/chromemacs
+```
+
 ## FAQ
 
 ### Why not use Guile's modules?
