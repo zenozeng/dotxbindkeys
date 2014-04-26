@@ -52,7 +52,7 @@ Example from [xbindkeys-chromemacs](https://github.com/zenozeng/xbindkeys-chrome
 
 ```
 mkdir -p ~/.dotxbindkeys/plugins/chromemacs
-cp -f chromemacs.scm chromemacdaemon ~/.dotxbindkeys/plugins/chromemacs
+cp -f chromemacs.scm ~/.dotxbindkeys/plugins/chromemacs
 ```
 
 ## FAQ
