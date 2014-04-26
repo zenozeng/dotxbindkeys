@@ -52,6 +52,10 @@ dotxbindkeys-send-message "Hello World"
 
 I want to use functions (xbindkey-function, ungrab-all-keys, remove-all-keys, etc) provided by xbindkeys, but they are unbound variable in module. So, I simply use include here.
 
+### How to identify one key pressed?
+
+`xbindkeys -k`
+
 ## Ref
 
 - http://www.gnu.org/software/guile/manual/html_node/Hook-Example.html#Hook-Example
