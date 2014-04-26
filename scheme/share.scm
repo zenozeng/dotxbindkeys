@@ -7,6 +7,12 @@
   (run-hook reset-keys-hook)
   (grab-all-keys))
 
+(define (press key)
+  "Ungrab all keys and press key using xdotool, then grab all keys"
+  (ungrab-all-keys)
+  (run-command (string-append "xdotool getwindowfocus key --clearmodifiers " key))
+  (grab-all-keys))
+
 (define (bind-run-receive-message-hook)
 
   (define (read-file filename)

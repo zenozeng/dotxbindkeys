@@ -21,6 +21,19 @@ cd dotxbindkeys
 
 `dotxbindkeys -v`
 
+## API
+
+### Press keys
+
+Example: send F5 when control+r pressed
+
+```scheme
+(add-hook! reset-keys-hook
+           (lambda ()
+             (xbindkey-function '(control r)
+                                (press "F5"))))
+```
+
 ### Send Message to xbindkeys
 
 ```scheme
