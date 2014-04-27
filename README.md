@@ -2,6 +2,8 @@
 
 Xbindkeys Configuration Framework
 
+Current Version: 0.1.0
+
 ## Install
 
 ```
@@ -15,23 +17,20 @@ cd dotxbindkeys
 
 ### Start
 
-`dotxbindkeys`
+`xbindkeys`
 
 ### Debug Mode
 
-`dotxbindkeys -v`
+`xbindkeys -v`
 
 ## API
 
-### Press keys
+### Bind/Press keys
 
 Example: send F5 when control+r pressed
 
 ```scheme
-(add-hook! reset-keys-hook
-           (lambda ()
-             (xbindkey-function '(control r)
-                                (press "F5"))))
+(define-key "global" '(control r) (lambda () (press "F5")))
 ```
 
 ### Send Message to xbindkeys
@@ -64,6 +63,10 @@ I want to use functions (xbindkey-function, ungrab-all-keys, remove-all-keys, et
 ### How to identify one key pressed?
 
 `xbindkeys -k`
+
+## License
+
+GPLv3
 
 ## Ref
 

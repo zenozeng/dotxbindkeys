@@ -18,6 +18,3 @@
 
 ;; include user's scheme
 (load "user.scm")
-
-;; init key bindings
-(reset-keys)

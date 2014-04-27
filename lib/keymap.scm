@@ -14,6 +14,7 @@
     (delete-duplicates (map car active-keybindings)))
 
   (define (apply-callbacks key)
+    (map display "APPLY CALLBACKS: " key "\n")
     (map (lambda (keybinding)
            ((car (cdr (cdr keybinding)))))
          (filter (lambda (keybinding)
