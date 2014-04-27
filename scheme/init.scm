@@ -1,10 +1,10 @@
 (use-modules (ice-9 ftw))
 
-;; include share functions
-; (include "share.scm")
-(load "share.scm")
+(load "keymap.scm")
+(load "message.scm")
+(load "functions.scm")
 
-;; include plugins
+;; load plugins
 (map (lambda (scm)
        (display (string-append "Loading Plugin: " scm "\n"))
        (load scm))

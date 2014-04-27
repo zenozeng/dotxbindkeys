@@ -59,7 +59,7 @@ cp -f chromemacs.scm ~/.dotxbindkeys/plugins/chromemacs
 
 ### Why not use Guile's modules?
 
-I want to use functions (xbindkey-function, ungrab-all-keys, remove-all-keys, etc) provided by xbindkeys, but they are unbound variable in module. So, I simply use include here.
+I want to use functions (xbindkey-function, ungrab-all-keys, remove-all-keys, etc) provided by xbindkeys, but they are unbound variable in module. So, I simply use `load` here.
 
 ### How to identify one key pressed?
 
