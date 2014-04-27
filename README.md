@@ -64,6 +64,19 @@ I want to use functions (xbindkey-function, ungrab-all-keys, remove-all-keys, et
 
 `xbindkeys -k`
 
+### Can't grab all keys?
+
+You may get this warning if you have more than one `xbindkeys` started.
+
+```
+*** Warning ***
+Please verify that there is not another program running
+which captures one of the keys captured by xbindkeys.
+It seems that there is a conflict, and xbindkeys can't
+grab all the keys defined in its configuration file.
+```
+
+
 ### Guile Modules
 
 `(ice-9 ftw)` and `(srfi srfi-1)` are avaiable by default.
