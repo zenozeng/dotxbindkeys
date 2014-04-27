@@ -32,8 +32,6 @@
 
   (map display (list "Switch to keymap: " keymap "\n"))
 
-  (display keybindings)
-  
   (ungrab-all-keys)
   (remove-all-keys)
   (map (lambda (key)
