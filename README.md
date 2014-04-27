@@ -64,6 +64,12 @@ I want to use functions (xbindkey-function, ungrab-all-keys, remove-all-keys, et
 
 `xbindkeys -k`
 
+### Guile Modules
+
+`(ice-9 ftw)` and `(srfi srfi-1)` are avaiable by default.
+
+- http://www.gnu.org/software/guile/manual/html\_node/SRFI\_002d1.html#SRFI\_002d1
+
 ## License
 
 GPLv3

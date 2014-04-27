@@ -1,10 +1,9 @@
-(use-modules (ice-9 ftw))
+(use-modules (ice-9 ftw) (srfi srfi-1))
 
 (load ".dotxbindkeys/lib/keymap.scm")
 (load ".dotxbindkeys/lib/message.scm")
 (load ".dotxbindkeys/lib/functions.scm")
 
-;; load plugins
 (map (lambda (scm)
        (display (string-append "Loading Plugin: " scm "\n"))
        (load scm))
@@ -12,9 +11,10 @@
             (string-append ".dotxbindkeys/plugins/" (car child)
                            "/" (car child)
                            ".scm"))
-          (cdr (cdr (file-system-tree
+          (drop (file-system-tree
                      (string-append (dirname (current-filename))
-                                    ".dotxbindkeys/plugins"))))))
+                                    "/.dotxbindkeys/plugins"))
+                2)))
 
-;; include user's scheme
 (load ".dotxbindkeys/user/user.scm")
+(set-keymap "global")

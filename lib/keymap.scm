@@ -16,9 +16,9 @@
   (define (apply-callbacks key)
     (map display "APPLY CALLBACKS: " key "\n")
     (map (lambda (keybinding)
-           ((car (cdr (cdr keybinding)))))
+           ((thrid keybinding)))
          (filter (lambda (keybinding)
-                   (equal? key (car (cdr keybinding))))
+                   (equal? key (second keybinding)))
                  active-keybindings)))
 
   (ungrab-all-keys)
