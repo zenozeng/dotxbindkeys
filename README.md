@@ -70,6 +70,10 @@ I want to use functions (xbindkey-function, ungrab-all-keys, remove-all-keys, et
 
 - http://www.gnu.org/software/guile/manual/html\_node/SRFI\_002d1.html#SRFI\_002d1
 
+### Why use string for keymap?
+
+This is allow to define-key before defining that keymap.
+
 ## License
 
 GPLv3
