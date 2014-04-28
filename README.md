@@ -76,7 +76,6 @@ It seems that there is a conflict, and xbindkeys can't
 grab all the keys defined in its configuration file.
 ```
 
-
 ### Guile Modules
 
 `(ice-9 ftw)` and `(srfi srfi-1)` are avaiable by default.
@@ -86,6 +85,18 @@ grab all the keys defined in its configuration file.
 ### Why use string for keymap?
 
 This is allow to define-key before defining that keymap.
+
+### What is the code of Super?
+
+use `mod4` instead.
+
+### Rescue super from Gnome Shell?
+
+This will disable default Gnome Shell Super Key Mapping:
+
+`gsettings set org.gnome.mutter overlay-key ''`
+
+see alse: http://superuser.com/questions/484686/disable-default-gnome-shell-super-key-mapping
 
 ## License
 
