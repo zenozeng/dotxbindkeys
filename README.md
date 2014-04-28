@@ -2,7 +2,7 @@
 
 Xbindkeys Configuration Framework
 
-Current Version: 0.1.1
+Current Version: 0.1.2
 
 ## Install
 
@@ -17,11 +17,11 @@ cd dotxbindkeys
 
 ### Start
 
-`xbindkeys`
+`dotxbindkeys start`
 
 ### Debug Mode
 
-`xbindkeys -v`
+`dotxbindkeys debug`
 
 ## API
 
@@ -42,7 +42,7 @@ Example: send F5 when control+r pressed
 ```
 
 ```shell
-dotxbindkeys-send-message "Hello World"
+dotxbindkeys send-message "Hello World"
 ```
 
 ### Install a plugin?
