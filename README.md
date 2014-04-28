@@ -33,6 +33,16 @@ Example: send F5 when control+r pressed
 (define-key "global" '(control r) (lambda () (press "F5")))
 ```
 
+Example: send Shift+End and Delete when control+k pressed
+
+```scheme
+(define-key "global"
+  '(control k)
+  (lambda () (press (list "Shif+End"
+                          "Delete"))))
+```
+
+
 ### Send Message to xbindkeys
 
 ```scheme
