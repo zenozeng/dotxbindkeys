@@ -98,6 +98,13 @@ This will disable default Gnome Shell Super Key Mapping:
 
 see alse: http://superuser.com/questions/484686/disable-default-gnome-shell-super-key-mapping
 
+### Why use a hotkey to send message? Why not a daemon in scheme?
+
+I have tried `thread`, `sleep` and `system-set-mark prec thread`. But no luck.
+Seems that after about 100ms `(system-set-mark prec main-thread)` will nerver counts.
+
+Anyway, if you find a more elegant way to send message, feel free to pull request.
+
 ## License
 
 GPLv3
