@@ -13,6 +13,7 @@
                      (set! c (read-char port)))
               str)))
         ""))
+  (system "echo $(date +%s) > /tmp/dotxbindkeys-echo")
   (read-file "/tmp/dotxbindkeys"))
 
 (define-key "global" '(alt shift F12)
