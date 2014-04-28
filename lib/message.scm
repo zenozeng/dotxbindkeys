@@ -16,5 +16,8 @@
   (system "echo $(date +%s) > /tmp/dotxbindkeys-echo")
   (read-file "/tmp/dotxbindkeys"))
 
-(define-key "global" '(alt shift F12)
-  (lambda () (run-hook receive-message-hook (read-message))))
+(define (listen-for-messages)
+  (xbindkey-function '(alt shift F12)
+                     (lambda ()
+                       (run-hook receive-message-hook (read-message)))))
+(listen-for-messages)

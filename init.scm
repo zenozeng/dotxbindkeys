@@ -1,7 +1,7 @@
-(use-modules (ice-9 ftw) (srfi srfi-1))
+(use-modules (ice-9 ftw) (srfi srfi-1) (srfi srfi-13))
 
-(load ".dotxbindkeys/lib/keymap.scm")
 (load ".dotxbindkeys/lib/message.scm")
+(load ".dotxbindkeys/lib/keymap.scm")
 (load ".dotxbindkeys/lib/functions.scm")
 
 (map (lambda (scm)

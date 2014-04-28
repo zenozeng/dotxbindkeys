@@ -88,9 +88,11 @@ grab all the keys defined in its configuration file.
 
 ### Guile Modules
 
-`(ice-9 ftw)` and `(srfi srfi-1)` are avaiable by default.
+`(ice-9 ftw)` , `(srfi srfi-1)` and `(srfi srfi-13)` are avaiable by default.
 
 - http://www.gnu.org/software/guile/manual/html\_node/SRFI\_002d1.html#SRFI\_002d1
+
+- http://srfi.schemers.org/srfi-13/srfi-13.html
 
 ### Why use string for keymap?
 
@@ -124,3 +126,7 @@ GPLv3
 - http://www.gnu.org/software/guile/manual/html_node/Hook-Example.html#Hook-Example
 
 - http://www.cnblogs.com/youxin/p/3427087.html
+
+- http://www.nongnu.org/xbindkeys/xbindkeysrc.scm.html
+
+- http://www.nongnu.org/xbindkeys/xbindkeysrc-combo.scm.html

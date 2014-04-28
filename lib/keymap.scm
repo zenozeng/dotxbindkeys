@@ -1,3 +1,5 @@
+;; Require: message.scm
+
 (define keybindings '())
 
 (define (define-key keymap key binding)
@@ -7,7 +9,8 @@
   (set! keybinding (acons "binding" binding keybinding))
   (set! keybindings (append keybindings (list keybinding))))
 
-(define (set-keymap keymap)
+(define (switch-to-keymap keymap)
+  "Switch to the given keymap now"
 
   (define active-keybindings
     (filter (lambda (keybinding)
@@ -30,12 +33,26 @@
                    (equal? key (assoc-ref keybinding "key")))
                  active-keybindings)))
 
-  (map display (list "Switch to keymap: " keymap "\n"))
+  (map display (list "\nSwitch to keymap: " keymap "\n"))
 
   (ungrab-all-keys)
   (remove-all-keys)
+  (listen-for-messages)
   (map (lambda (key)
          (xbindkey-function key (lambda ()
                                   (apply-callbacks key))))
        active-keys)
   (grab-all-keys))
+
+(add-hook! receive-message-hook
+           (lambda (msg)
+             (if (string-prefix? "set-keymap" msg)
+                 (begin
+                   (switch-to-keymap
+                    (second (string-tokenize msg)))))))
+
+(define (set-keymap keymap)
+  ;; a workround for #5
+  ;; using send-message will be change current key to (alt shift F12)
+  (system (string-append
+           "dotxbindkeys send-message \"set-keymap " keymap "\"")))
