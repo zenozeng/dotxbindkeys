@@ -35,10 +35,6 @@
 
   (map display (list "\nSwitch to keymap: [" keymap "]\n"))
 
-  (display "==============")
-  (display active-keys)
-  (display "==============")
-
   (ungrab-all-keys)
   (remove-all-keys)
   (listen-for-messages)
@@ -58,5 +54,5 @@
 (define (set-keymap keymap)
   ;; a workround for #5
   ;; using send-message will be change current key to (alt shift F12)
-  (system (string-append
+  (run-command (string-append
            "dotxbindkeys send-message 'set-keymap::" keymap "'")))

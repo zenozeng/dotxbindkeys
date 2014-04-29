@@ -12,11 +12,11 @@
            (set! *dotxbindkeys-messages* (cdr *dotxbindkeys-messages*)))))
 
 (define (listen-for-messages)
-  (xbindkey-function '(alt shift F12) dispatch-messages))
+  (xbindkey-function '(control F12) dispatch-messages))
 (listen-for-messages)
 
 (begin-thread
- (system "rm -rf /tmp/dotxbindkeys.sock")
+ (run-command "rm -rf /tmp/dotxbindkeys.sock")
 
  (let ((s (socket PF_UNIX SOCK_STREAM 0))
        (sock-addr (make-socket-address AF_UNIX "/tmp/dotxbindkeys.sock"))
