@@ -3,6 +3,7 @@
 (load ".dotxbindkeys/lib/message.scm")
 (load ".dotxbindkeys/lib/keymap.scm")
 (load ".dotxbindkeys/lib/functions.scm")
+(load ".dotxbindkeys/lib/socket-server.scm")
 
 (map (lambda (scm)
        (display (string-append "Loading Plugin: " scm "\n"))
