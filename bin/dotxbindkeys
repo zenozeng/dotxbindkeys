@@ -40,7 +40,7 @@ case "$1" in
         # send message
         echo "dotxbindkeys: try to send message: $2"
         echo $2 | nc -U /tmp/dotxbindkeys.sock
-        xdotool key --clearmodifiers alt+shift+F12
+        xdotool key --clearmodifiers control+F12
         echo "dotxbindkeys: message sent"
         ;;
     *)
