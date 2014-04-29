@@ -4,11 +4,8 @@
 
 (define (dispatch-messages)
   (while (not (null? *dotxbindkeys-messages*))
-         ;; TODO: CONVERT to STRING
-         (let ((msg (simple-format #t "~S"
-                                   (car *dotxbindkeys-messages*))))
-           (display (string? msg))
-           (map display (list "dispatch message: "
+         (let ((msg (format #f "~a" (car *dotxbindkeys-messages*))))
+           (map display (list "\nDispatch message: "
                               msg
                               "\n"))
            (run-hook receive-message-hook msg)
@@ -34,7 +31,8 @@
                  (client-details (cdr client-connection))
                  (client (car client-connection))
                  (eol "\n"))
-            (map display (list "\n> conn" eol))
+            (map display (list eol "message-server> new client" eol))
             (let ((data (read client)))
+              (map display (list eol "message-server> recv: " data eol))
               (set! *dotxbindkeys-messages* (append *dotxbindkeys-messages* (list data))))
             (close client)))))

@@ -7,7 +7,7 @@ Current Version: 0.1.2
 ## Install
 
 ```
-sudo apt-get install xbindkeys xdotool
+sudo apt-get install xbindkeys xdotool netcat-openbsd
 git clone https://github.com/zenozeng/dotxbindkeys.git
 cd dotxbindkeys
 ./install.sh

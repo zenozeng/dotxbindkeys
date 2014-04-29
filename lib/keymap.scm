@@ -33,7 +33,11 @@
                    (equal? key (assoc-ref keybinding "key")))
                  active-keybindings)))
 
-  (map display (list "\nSwitch to keymap: " keymap "\n"))
+  (map display (list "\nSwitch to keymap: [" keymap "]\n"))
+
+  (display "==============")
+  (display active-keys)
+  (display "==============")
 
   (ungrab-all-keys)
   (remove-all-keys)
@@ -46,13 +50,13 @@
 
 (add-hook! receive-message-hook
            (lambda (msg)
-             (if (string-prefix? "set-keymap" msg)
+             (if (string-prefix? "set-keymap::" msg)
                  (begin
                    (switch-to-keymap
-                    (second (string-tokenize msg)))))))
+                    (string-replace msg "" 0 12))))))
 
 (define (set-keymap keymap)
   ;; a workround for #5
   ;; using send-message will be change current key to (alt shift F12)
   (system (string-append
-           "dotxbindkeys send-message \"set-keymap " keymap "\"")))
+           "dotxbindkeys send-message 'set-keymap::" keymap "'")))

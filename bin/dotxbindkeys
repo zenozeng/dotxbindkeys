@@ -38,9 +38,10 @@ case "$1" in
             exit 1;
         fi
         # send message
+        echo "dotxbindkeys: try to send message: $2"
         echo $2 | nc -U /tmp/dotxbindkeys.sock
-        # xdotool key --clearmodifiers alt+shift+F12
-        echo "message sent"
+        xdotool key --clearmodifiers alt+shift+F12
+        echo "dotxbindkeys: message sent"
         ;;
     *)
         echo "Usage: $NAME {start|stop|debug|send-message}" >&2

@@ -17,4 +17,4 @@
                 2)))
 
 (load ".dotxbindkeys/user/user.scm")
-(set-keymap "global")
+(switch-to-keymap "global")
