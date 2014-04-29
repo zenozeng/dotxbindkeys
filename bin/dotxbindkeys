@@ -31,29 +31,15 @@ case "$1" in
             echo "Usage: $NAME send-message \"message\""
             exit 3
         fi
+        # check if xbindkeys running
+        ps cax | grep " xbindkeys" > /dev/null
+        if [ $? -eq 1 ]; then
+            echo "xbindkeys is not running."
+            exit 1;
+        fi
         # send message
-        timestamp=$(date +%s)
-        function get_echo() {
-            if [ -e /tmp/dotxbindkeys-echo ]; then
-                echo $(cat /tmp/dotxbindkeys-echo)
-            else
-                echo 0;
-            fi
-        }
-        while [ "$timestamp" -gt `get_echo` ]
-        do
-            echo "try to send message: $2 [$timestamp]"
-
-            # check if xbindkeys running
-            ps cax | grep " xbindkeys" > /dev/null
-            if [ $? -eq 1 ]; then
-                echo "xbindkeys is not running."
-                exit 1;
-            fi
-
-            echo $2 > /tmp/dotxbindkeys
-            xdotool key --clearmodifiers alt+shift+F12
-        done
+        echo $2 | nc -U /tmp/dotxbindkeys.sock
+        # xdotool key --clearmodifiers alt+shift+F12
         echo "message sent"
         ;;
     *)

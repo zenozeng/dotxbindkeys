@@ -1,3 +1,5 @@
+(use-modules (rnrs bytevectors))
+
 (define message-server
   (lambda (op . args)
 
@@ -13,21 +15,6 @@
         (write 'push s)
         (write msg s)
         (close s)))
-
-    (define (pull)
-      (let ((s (connect-server)))
-        (write 'pull s)
-        (do ((output (read s) (read s)))
-            ((eof-object? s))
-          (display "====")
-          (display output))
-        (close s)
-        ;; (let ((content (read s)))
-        ;;   (display "###")
-        ;;   (display content)
-        ;;   (display "###")
-        ;;   (close s))
-        ))
 
     (if (equal? op 'push)
         (push (car args)))
