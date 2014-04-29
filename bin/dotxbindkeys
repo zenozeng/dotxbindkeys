@@ -7,6 +7,9 @@ case "$1" in
         killall xbindkeys >/dev/null 2>&1
         xbindkeys
         ;;
+    start-socket-server)
+        guile -s ~/.dotxbindkeys/lib/socket-server.scm
+        ;;
     stop)
         killall xbindkeys >/dev/null 2>&1
         ;;

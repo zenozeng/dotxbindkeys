@@ -1,0 +1,11 @@
+(let* ((s (socket PF_UNIX SOCK_STREAM 0))
+       (path (string-append "/tmp/dotxbindkeys.sock"))
+       (address (make-socket-address AF_UNIX path)))
+
+  (do ((line (read-line s) (read-line s))
+       (eof-object? line))
+      (display line))
+(connect s address)
+  (write "push" s)
+  (write "你好世界！" s)
+  (close s))
