@@ -16,7 +16,7 @@
 (listen-for-messages)
 
 (begin-thread
- (run-command "rm -rf /tmp/dotxbindkeys.sock")
+ (system "rm -rf /tmp/dotxbindkeys.sock")
 
  (let ((s (socket PF_UNIX SOCK_STREAM 0))
        (sock-addr (make-socket-address AF_UNIX "/tmp/dotxbindkeys.sock"))

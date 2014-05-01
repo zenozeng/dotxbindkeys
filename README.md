@@ -2,7 +2,7 @@
 
 Xbindkeys Configuration Framework
 
-Current Version: 0.2.0
+Current Version: 0.2.1
 
 ## Install
 
@@ -25,7 +25,37 @@ cd dotxbindkeys
 
 ## API
 
-### Bind/Press keys
+### Define Key
+
+```scheme
+(define-key "keymap-name" key (lambda () (do-sth)))
+```
+
+key is sth like `'(control f)`.
+
+### Set Keymap
+
+```scheme
+(set-keymap "keymap-name")
+```
+
+Switch to given keymap.  
+Note that all the keybindings in keymap `global` will be included.
+
+```scheme
+(set-keymap-async "keymap-name")
+```
+
+Sometimes, when 2 keymaps contains the same key.
+For example, `'(control space)` to enable set-mark-mode-keymap
+and `'(control space)` to switch back.
+Your may not be able to switch back if you use `set-keymap`.
+I am not sure what caused it, but you can use `set-keymap-async`
+if you encounter this problem.
+
+### Simulate keystrokes
+
+Simulate keystrokes (will ungrab all keys before that)
 
 Example: send F5 when control+r pressed
 
@@ -41,7 +71,6 @@ Example: send Shift+End and Delete when control+k pressed
   (lambda () (press (list "Shif+End"
                           "Delete"))))
 ```
-
 
 ### Send Message to xbindkeys
 
@@ -64,11 +93,9 @@ mkdir -p ~/.dotxbindkeys/plugins/chromemacs
 cp -f chromemacs.scm ~/.dotxbindkeys/plugins/chromemacs
 ```
 
+Note that chromemacs.scm is the `init.scm` for plugins/chromemacs.
+
 ## FAQ
-
-### Why not use Guile's modules?
-
-I want to use functions (xbindkey-function, ungrab-all-keys, remove-all-keys, etc) provided by xbindkeys, but they are unbound variable in module. So, I simply use `load` here.
 
 ### How to identify one key pressed?
 
@@ -86,17 +113,13 @@ It seems that there is a conflict, and xbindkeys can't
 grab all the keys defined in its configuration file.
 ```
 
-### Guile Modules
+### Why not use Guile's modules?
 
-`(ice-9 ftw)` , `(srfi srfi-1)` and `(srfi srfi-13)` are avaiable by default.
-
-- http://www.gnu.org/software/guile/manual/html\_node/SRFI\_002d1.html#SRFI\_002d1
-
-- http://srfi.schemers.org/srfi-13/srfi-13.html
+I want to use functions (xbindkey-function, ungrab-all-keys, remove-all-keys, etc) provided by xbindkeys, but they are unbound variable in module. So, I simply use `load` here.
 
 ### Why use string for keymap?
 
-This is allow to define-key before defining that keymap.
+This allows to define-key before defining that keymap.
 
 ### What is the code of Super?
 

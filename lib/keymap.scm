@@ -9,7 +9,7 @@
   (set! keybinding (acons "binding" binding keybinding))
   (set! keybindings (append keybindings (list keybinding))))
 
-(define (switch-to-keymap keymap)
+(define (set-keymap keymap)
   "Switch to the given keymap now"
 
   (define active-keybindings
@@ -48,10 +48,10 @@
            (lambda (msg)
              (if (string-prefix? "set-keymap::" msg)
                  (begin
-                   (switch-to-keymap
+                   (set-keymap
                     (string-replace msg "" 0 12))))))
 
-(define (set-keymap keymap)
+(define (set-keymap-async keymap)
   ;; a workround for #5
   ;; using send-message will be change current key to (alt shift F12)
   (run-command (string-append
