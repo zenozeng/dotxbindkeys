@@ -11,3 +11,14 @@
   (ungrab-all-keys)
   (run-command cmd)
   (grab-all-keys))
+
+(define (keyup keys)
+  "Release keys"
+  (run-command
+   (apply string-append
+          (cons "xdotool "
+                (map (lambda (key)
+                       (string-append " keyup " key))
+                     (if (list? keys)
+                         keys
+                         (list keys)))))))

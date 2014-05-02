@@ -2,7 +2,7 @@
 
 Xbindkeys Configuration Framework
 
-Current Version: 0.2.1
+Current Version: 0.2.2
 
 ## Install
 
@@ -70,6 +70,24 @@ Example: send Shift+End and Delete when control+k pressed
   '(control k)
   (lambda () (press (list "Shif+End"
                           "Delete"))))
+```
+
+### Release keys
+
+```scheme
+(keyup keys)
+```
+
+Example: release shift
+
+```scheme
+(keyup "shift")
+```
+
+Example: release shift and control
+
+```scheme
+(keyup (list "shift" "control"))
 ```
 
 ### Send Message to xbindkeys
