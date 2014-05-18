@@ -2,7 +2,7 @@
 
 Xbindkeys Configuration Framework
 
-Current Version: 0.2.2
+Current Version: 0.3.0
 
 ## Install
 
@@ -10,7 +10,7 @@ Current Version: 0.2.2
 sudo apt-get install xbindkeys xdotool netcat-openbsd
 git clone https://github.com/zenozeng/dotxbindkeys.git
 cd dotxbindkeys
-./install.sh
+sudo ./install.sh
 ```
 
 ## Usage

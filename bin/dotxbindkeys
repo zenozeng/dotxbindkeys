@@ -4,8 +4,13 @@ NAME="dotxbindkeys"
 
 case "$1" in
     start|restart)
+        # init dir
+        mkdir -p ~/.dotxbindkeys/plugins
+        touch ~/.dotxbindkeys/user.scm
+        # kill original xbindkeys
         killall xbindkeys >/dev/null 2>&1
-        xbindkeys
+        # start
+        xbindkeys -fg /usr/local/lib/dotxbindkeys/init.scm
         ;;
     start-socket-server)
         guile -s ~/.dotxbindkeys/lib/socket-server.scm
@@ -14,8 +19,11 @@ case "$1" in
         killall xbindkeys >/dev/null 2>&1
         ;;
     debug)
+        echo "Dotxbindkeys v0.3.0: Enter Debug Mode"
+        mkdir -p ~/.dotxbindkeys/plugins
+        touch ~/.dotxbindkeys/user.scm
         killall xbindkeys >/dev/null 2>&1
-        xbindkeys -v
+        xbindkeys -fg /usr/local/lib/dotxbindkeys/init.scm --verbose
         ;;
     status)
         ps cax | grep " xbindkeys" > /dev/null
