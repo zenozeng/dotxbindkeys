@@ -16,5 +16,5 @@ if [ -e "/home/$USER/.xbindkeysrc" ]; then
     mv ~/.xbindkeysrc ~/.xbindkeysrc.bak
 fi
 cp init.scm ~/.xbindkeysrc.scm
-cp -f bin/* ~/.local/bin
+sudo cp -f bin/* /usr/local/bin
 echo "dotxbindkyes installed."
