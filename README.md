@@ -1,5 +1,7 @@
 # dotxbindkeys
 
+**Note: This repository is no longer maintained.  You can use python3-keybinder instead.  **
+
 Xbindkeys Configuration Framework
 
 Current Version: 0.3.0
